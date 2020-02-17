@@ -1,9 +1,7 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import MenuHeader from "./menu.tsx";
-import jumbo from "./jumbotron.tsx";
-
+import { MyInputText, MyCheckboxs, MyCombobox, MyTextArea} from "./InformationComponent.tsx";
 
 function App() {
   return (
@@ -11,10 +9,12 @@ function App() {
     <div className="App">
       <header className="App-header">
         <MenuHeader></MenuHeader>
-        <jumbo></jumbo>
-        
-        
       </header>
+      <MyInputText></MyInputText>
+      <MyCheckboxs></MyCheckboxs>
+      <MyCombobox></MyCombobox>
+
+      <MyTextArea></MyTextArea>
     </div>
   );
 }
