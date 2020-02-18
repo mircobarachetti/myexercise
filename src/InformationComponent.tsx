@@ -1,5 +1,6 @@
 import React from 'react';
 import Select from 'react-select';
+import $ from 'jquery';
 
 let variable = "" ;
 
@@ -17,7 +18,9 @@ async function awaitAndFill(props : any){
                result = props.label;
                break;
          }
-    variable += "You have selected " + result + "\n";
+    // or variable +=
+    variable = "You have selected " + result + "\n";
+    $('#textarea_results').append(variable);
     console.log(variable);
 };
 
