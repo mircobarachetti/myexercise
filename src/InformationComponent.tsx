@@ -1,25 +1,31 @@
-import React from 'react';
+import * as React from 'react';
 import Select from 'react-select';
-import $ from "jquery";
-declare module 'react-select';
 
 
-const fillTextArea = (props : any) => {
-    var result = "";
+
+
+let variable = "" ;
+
+async function awaitAndFill(props : any){
+    let result = "";
     console.log(props);
     switch(props.target.name){
-            case "myInputText":
-                result =  props.target.value;
-                break;
-            case "myCheckbox":
-                result = props.target.id;
-                break;
-            default :
-                result = props.label;
-                break;
-        }
+         case "myInputText":
+               result =  props.target.value;
+               break;
+         case "myCheckbox":
+               result = props.target.id;
+               break;
+         default :
+               result = props.label;
+               break;
+         }
+    variable += "You have selected " + result + "\n";
+    console.log(variable);
+};
 
-    $('#textarea_results').append("You have selected " + result + "\n" );
+const fillTextArea = (props : any) => {
+    awaitAndFill(props);
 }
 
 class MyInputText extends React.Component {
@@ -67,13 +73,14 @@ class MyCombobox extends React.Component {
     }
 }
 
+
 class MyTextArea extends React.Component {
 
     render() {
         return (
             <div id="myTextArea">
                  <p><b>Chronology:</b></p>
-                 <textarea id="textarea_results"></textarea>
+                  <textarea id="textarea_results" value={variable}></textarea>
             </div>
         )
     }
