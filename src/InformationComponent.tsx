@@ -1,8 +1,5 @@
-import * as React from 'react';
+import React from 'react';
 import Select from 'react-select';
-
-
-
 
 let variable = "" ;
 
